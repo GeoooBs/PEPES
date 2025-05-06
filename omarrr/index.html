@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurante Delicioso</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    .header {
+      background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .tabs {
+      display: flex;
+      background-color: #8B0000;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 16px;
+      cursor: pointer;
+      color: white;
+      background-color: #8B0000;
+      border: none;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+
+    .tab:hover,
+    .tab.active {
+      background-color: #a30000;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 30px;
+      background-color: #fff8f0;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .tab-content img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #8B0000;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">Delicious Restaurant</div>
+
+  <div class="tabs">
+    <button class="tab" onclick="showTab(0)">Inicio</button>
+    <button class="tab" onclick="showTab(1)">Menú</button>
+    <button class="tab" onclick="showTab(2)">Sobre Nosotros</button>
+    <button class="tab" onclick="showTab(3)">Contacto</button>
+  </div>
+
+  <div class="tab-content" id="tab-0">
+    <h2>Bienvenidos a Delicious Restaurant</h2>
+    <p>¿Buscas un lugar donde compartir momentos especiales? Ya sea una comida familiar, una cena romántica o una reunión con amigos, en Delicioso encontrarás el ambiente perfecto y una carta que enamora a todos los paladares.</p>
+    <p>Nuestra cocina combina lo mejor de la tradición con un toque moderno, utilizando ingredientes frescos y recetas únicas. ¡Ven a disfrutar de una experiencia culinaria inolvidable!</p>
+    <img src="depositphotos_144665149-stock-illustration-mexican-food-restaurant-logo.jpg" alt="Plato principal">
+  </div>
+
+  <div class="tab-content" id="tab-1">
+    <h2>Menú para Todos los Gustos</h2>
+    <p>Nuestros platos están diseñados para todos los públicos: desde clásicos reconfortantes hasta opciones creativas y saludables. ¡Aquí, todos encuentran algo que amar!</p>
+    <ul>
+      <li>🍝 Pasta al pesto con camarones – Ideal para los amantes de la pasta.</li>
+      <li>🍖 Costillas BBQ a la leña – Jugosas y con ese toque ahumado irresistible.</li>
+      <li>🥗 Ensalada mediterránea – Fresca, ligera y llena de sabor.</li>
+      <li>🍕 Pizza artesanal de horno de leña – Perfecta para compartir.</li>
+      <li>🍰 Tarta de chocolate casera – Dulce final que encanta a grandes y chicos.</li>
+    </ul>
+    <p>También contamos con menú infantil, opciones vegetarianas y platos sin gluten.</p>
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Platos variados">
+  </div>
+
+  <div class="tab-content" id="tab-2">
+    <h2>Conócenos</h2>
+    <p>Delicious Restaurant nació del sueño de compartir buena comida y buenos momentos. Desde 2013, hemos sido el lugar favorito de muchos para celebrar cumpleaños, aniversarios o simplemente el gusto de comer bien.</p>
+    <p>Nuestro equipo de chefs y meseros ama lo que hace, y se nota en cada detalle: desde la atención cálida hasta la presentación de cada plato.</p>
+    <p>Más que un restaurante, somos una familia que te recibe con los brazos abiertos.</p>
+    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1" alt="Chef preparando comida">
+  </div>
+
+  <div class="tab-content" id="tab-3">
+    <h2>Contáctanos</h2>
+    <p>📍 Dirección: Av.16 de Septiembre, Ceballos Dgo.</p>
+    <p>📞 Teléfono: 8714840825</p>
+    <p>📧 Email: contacto@delicioso.com</p>
+    <p>⏰ Horario:</p>
+    <ul>
+      <li>Lunes a Viernes: 12:00 – 23:00</li>
+      <li>Sábados y Domingos: 13:00 – 00:00</li>
+    </ul>
+    <p>¿Tienes un evento especial? ¡Llámanos! Organizamos cenas privadas, celebraciones y más.</p>
+    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754" alt="Interior del restaurante">
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Delicious Restaurant – Todos los derechos reservados.
+  </div>
+
+  <script>
+    function showTab(index) {
+      const contents = document.querySelectorAll('.tab-content');
+      const tabs = document.querySelectorAll('.tab');
+
+      contents.forEach(content => content.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      contents[index].classList.add('active');
+      tabs[index].classList.add('active');
+    }
+
+    // Mostrar la primera pestaña al cargar
+    showTab(0);
+  </script>
+
+</body>
+</html>
+
